@@ -1,0 +1,51 @@
+<%- include('../partials/header') %>
+<div class="container py-4">
+  <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+    <h1 class="h3 fw-bold mb-0">Manage Orders</h1>
+    <a href="/admin" class="btn btn-outline-secondary btn-sm">Back to Dashboard</a>
+  </div>
+
+  <div class="bg-white rounded-4 shadow-sm p-3">
+    <div class="table-responsive">
+      <table class="table align-middle">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Customer</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Total</th>
+            <th>Status</th>
+            <th>Update Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (!orders.length) { %>
+            <tr><td colspan="7">No orders available.</td></tr>
+          <% } %>
+          <% orders.forEach(order => { %>
+            <tr>
+              <td>#<%= order.id %></td>
+              <td><%= order.customer_name %></td>
+              <td><%= order.delivery_address %></td>
+              <td><%= order.phone %></td>
+              <td>NPR <%= Number(order.total_amount).toFixed(0) %></td>
+              <td><span class="badge text-bg-warning"><%= order.status %></span></td>
+              <td>
+                <form action="/admin/orders/<%= order.id %>/status" method="post" class="d-flex gap-2">
+                  <select class="form-select form-select-sm" name="status">
+                    <% statuses.forEach(status => { %>
+                      <option value="<%= status %>" <%= order.status === status ? 'selected' : '' %>><%= status %></option>
+                    <% }) %>
+                  </select>
+                  <button class="btn btn-sm btn-outline-primary">Save</button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<%- include('../partials/footer') %>

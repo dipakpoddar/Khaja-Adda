@@ -1,0 +1,68 @@
+<%- include('partials/header') %>
+<section class="hero-section text-white mb-5">
+  <div class="container py-5">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-7">
+        <h1 class="display-5 fw-bold">Authentic Nepali Flavors Delivered Fast</h1>
+        <p class="lead">Order momo, thakali sets, and your favorite khaja from Khaja-Adda. Freshly cooked and delivered across your city.</p>
+        <a href="/menu" class="btn btn-warning btn-lg px-4">Order Now</a>
+      </div>
+      <div class="col-lg-5">
+        <div class="hero-card p-4 rounded-4 shadow">
+          <h5 class="fw-bold">Why Khaja-Adda?</h5>
+          <ul class="mb-0">
+            <li>Traditional Nepali recipes</li>
+            <li>Real-time order tracking</li>
+            <li>Safe checkout and quick delivery</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container mb-5">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="fw-bold">Popular Categories</h2>
+    <a href="/menu" class="btn btn-outline-danger">View Full Menu</a>
+  </div>
+  <div class="row g-3">
+    <% categories.forEach(category => { %>
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 border-0 shadow-sm">
+          <img src="<%= category.image %>" class="card-img-top category-img" alt="<%= category.name %>" />
+          <div class="card-body">
+            <h5 class="card-title"><%= category.name %></h5>
+            <p class="card-text text-muted small"><%= category.description %></p>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</section>
+
+<section class="container mb-5">
+  <h2 class="fw-bold mb-3">Featured Items</h2>
+  <div class="row g-4">
+    <% featuredFoods.forEach(food => { %>
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 border-0 shadow-sm">
+          <img src="<%= food.image %>" class="card-img-top food-img" alt="<%= food.name %>" />
+          <div class="card-body d-flex flex-column">
+            <span class="badge text-bg-light align-self-start mb-2"><%= food.category_name %></span>
+            <h5 class="card-title"><%= food.name %></h5>
+            <p class="card-text text-muted"><%= food.description %></p>
+            <div class="mt-auto d-flex justify-content-between align-items-center">
+              <span class="fw-bold text-danger">NPR <%= Number(food.price).toFixed(0) %></span>
+              <form action="/menu/add-to-cart/<%= food.id %>" method="post" class="d-flex gap-2">
+                <input type="number" name="quantity" value="1" min="1" class="form-control form-control-sm qty-input" />
+                <button class="btn btn-danger btn-sm" type="submit">Add</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</section>
+<%- include('partials/footer') %>

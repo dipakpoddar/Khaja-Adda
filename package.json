@@ -2,9 +2,11 @@
   "name": "khaja-adda",
   "version": "1.0.0",
   "description": "Online Food Delivery Management System",
-  "main": "index.js",
+  "main": "src/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/app.js",
+    "dev": "node --watch src/app.js",
+    "test": "node -e \"console.log('No automated tests configured yet.')\""
   },
   "repository": {
     "type": "git",

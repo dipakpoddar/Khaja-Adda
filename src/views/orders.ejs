@@ -1,0 +1,37 @@
+<%- include('partials/header') %>
+<div class="container py-4">
+  <h1 class="h3 fw-bold mb-4">My Orders</h1>
+  <div class="bg-white rounded-4 shadow-sm p-3">
+    <% if (!orders.length) { %>
+      <p class="mb-0">No orders placed yet. <a href="/menu">Start ordering</a>.</p>
+    <% } else { %>
+      <div class="table-responsive">
+        <table class="table align-middle">
+          <thead>
+            <tr>
+              <th>Order #</th>
+              <th>Date</th>
+              <th>Total</th>
+              <th>Payment</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% orders.forEach(order => { %>
+              <tr>
+                <td>#<%= order.id %></td>
+                <td><%= new Date(order.created_at).toLocaleString() %></td>
+                <td>NPR <%= Number(order.total_amount).toFixed(0) %></td>
+                <td><%= order.payment_method %></td>
+                <td><span class="badge text-bg-warning"><%= order.status %></span></td>
+                <td><a href="/orders/track/<%= order.id %>" class="btn btn-sm btn-outline-primary">Track</a></td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    <% } %>
+  </div>
+</div>
+<%- include('partials/footer') %>

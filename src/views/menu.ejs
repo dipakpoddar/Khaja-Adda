@@ -1,0 +1,40 @@
+<%- include('partials/header') %>
+<div class="container py-4">
+  <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+    <h1 class="h3 fw-bold mb-0">Food Menu</h1>
+    <form method="get" action="/menu" class="d-flex gap-2">
+      <select class="form-select" name="category" onchange="this.form.submit()">
+        <option value="">All Categories</option>
+        <% categories.forEach(category => { %>
+          <option value="<%= category.id %>" <%= selectedCategory === category.id ? 'selected' : '' %>><%= category.name %></option>
+        <% }) %>
+      </select>
+    </form>
+  </div>
+
+  <div class="row g-4">
+    <% if (!foods.length) { %>
+      <p>No food items found for this category.</p>
+    <% } %>
+    <% foods.forEach(food => { %>
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 border-0 shadow-sm">
+          <img src="<%= food.image %>" class="card-img-top food-img" alt="<%= food.name %>" />
+          <div class="card-body d-flex flex-column">
+            <span class="badge text-bg-light align-self-start mb-2"><%= food.category_name %></span>
+            <h5><%= food.name %></h5>
+            <p class="text-muted"><%= food.description %></p>
+            <div class="mt-auto d-flex justify-content-between align-items-center">
+              <span class="fw-bold text-danger">NPR <%= Number(food.price).toFixed(0) %></span>
+              <form action="/menu/add-to-cart/<%= food.id %>" method="post" class="d-flex gap-2">
+                <input type="number" class="form-control form-control-sm qty-input" name="quantity" value="1" min="1" />
+                <button type="submit" class="btn btn-danger btn-sm">Add</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</div>
+<%- include('partials/footer') %>
