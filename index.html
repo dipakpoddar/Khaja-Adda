@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Khaja Adda | Nepal Vibe Delivery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-pattern"></div>
+
+    <header class="topbar glass">
+      <div class="brand">
+        <span class="brand-icon">🇳🇵</span>
+        <div>
+          <h1>Khaja Adda</h1>
+          <p>"Mood lagyo? Khana magau!"</p>
+        </div>
+      </div>
+      <nav>
+        <button class="tab-btn active" data-target="vibe-zone">Vibe Zone</button>
+        <button class="tab-btn" data-target="khaja-bazar">Khaja Bazar</button>
+        <button class="tab-btn" data-target="sathi-boleko">Sathi Boleko</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero glass reveal" id="vibe-zone">
+        <div class="hero-copy">
+          <span class="pill">Kathmandu to your doorstep ⚡</span>
+          <h2>Yo ho Nepal ko <span>most chillo</span> food delivery adda</h2>
+          <p>
+            Momo, sekuwa, chatpate, laphing, and pure Nepali cravings in one tap. Fresh,
+            spicy, and full-on desi vibe – straight to your tole.
+          </p>
+          <div class="cta-group">
+            <a class="cta primary" href="tel:+9779800000000" aria-label="Call Khaja Adda directly">
+              📞 Call Adda
+            </a>
+            <a class="cta secondary" href="sms:+9779800000000?body=Namaste%20Khaja%20Adda!%20Ma%20order%20garna%20chahanchu." aria-label="Send SMS to Khaja Adda">
+              💬 SMS Order
+            </a>
+          </div>
+        </div>
+        <div class="hero-card bounce">
+          <h3>Today&apos;s Garmi Combo 🔥</h3>
+          <ul>
+            <li>Steam Momo x 1 plate</li>
+            <li>Buff Sekuwa x 1 stick set</li>
+            <li>Masala Chiya x 2</li>
+          </ul>
+          <p class="price">रू 699 only</p>
+          <button class="order-now">Order Chadai</button>
+        </div>
+      </section>
+
+      <section class="menu reveal" id="khaja-bazar">
+        <div class="section-head">
+          <h2>Khaja Bazar</h2>
+          <p>Pick your mood, we&apos;ll handle the bhok.</p>
+        </div>
+
+        <div class="chips" id="menu-filters">
+          <button class="chip active" data-filter="all">Sabai</button>
+          <button class="chip" data-filter="momo">Momo Mood</button>
+          <button class="chip" data-filter="street">Street Swad</button>
+          <button class="chip" data-filter="healthy">Fit but Nepali</button>
+        </div>
+
+        <div class="card-grid" id="menu-grid">
+          <article class="food-card glass" data-type="momo">
+            <span>🥟</span>
+            <h3>Jhol Momo Blast</h3>
+            <p>Hot jhol, timur kick, and momo love.</p>
+            <strong>रू 289</strong>
+          </article>
+          <article class="food-card glass" data-type="street">
+            <span>🍢</span>
+            <h3>Sekuwa Street Set</h3>
+            <p>Smoky buff/chicken sekuwa with achar swirl.</p>
+            <strong>रू 349</strong>
+          </article>
+          <article class="food-card glass" data-type="street">
+            <span>🥗</span>
+            <h3>Chatpate Crunch</h3>
+            <p>Tangy, spicy, and fully nostalgic.</p>
+            <strong>रू 179</strong>
+          </article>
+          <article class="food-card glass" data-type="healthy">
+            <span>🍲</span>
+            <h3>Thakali Lite Bowl</h3>
+            <p>Balanced dal-bhat-tarkari with local greens.</p>
+            <strong>रू 399</strong>
+          </article>
+          <article class="food-card glass" data-type="momo">
+            <span>🌶️</span>
+            <h3>Chilli Momo Chaap</h3>
+            <p>Crispy toss with onion-pepper masala hit.</p>
+            <strong>रू 319</strong>
+          </article>
+          <article class="food-card glass" data-type="healthy">
+            <span>🥣</span>
+            <h3>Kwati Power Soup</h3>
+            <p>Protein-heavy Newari classic, monsoon fav.</p>
+            <strong>रू 249</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="reviews reveal" id="sathi-boleko">
+        <div class="section-head">
+          <h2>Sathi Boleko</h2>
+          <p>Real talk from real bhok-lageko people.</p>
+        </div>
+        <div class="review-track" id="review-track">
+          <article class="review glass">
+            <p>"Delivery ta ekdam rocket 🚀 momo still steamy!"</p>
+            <span>— Prisha, Baneshwor</span>
+          </article>
+          <article class="review glass">
+            <p>"Night bhok ko lifesaver. SMS gareko 2 min ma confirm."</p>
+            <span>— Rijan, Lalitpur</span>
+          </article>
+          <article class="review glass">
+            <p>"Nepali vibe + clean packaging + spicy achar = perfect."</p>
+            <span>— Samip, Pokhara</span>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Made with momo power in Nepal 🇳🇵 | Khaja Adda 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
